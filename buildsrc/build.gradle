@@ -1,0 +1,31 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+ext{
+    groupId = "com.source.router.plugin"
+    artifactId = "plugin"
+    version = "1.1.2"
+    packaging = "aar"
+}
+apply from: project.uri('maven.gradle')
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.33'
+    compile group: 'commons-io', name: 'commons-io', version: '2.4'
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+    compile group: 'org.javassist', name: 'javassist', version: '3.21.0-GA'
+    compile 'com.android.tools.build:gradle:3.0.0'
+    compile 'com.source.annotation:annotation:1.0.1'
+}
+
+repositories {
+    google()
+    jcenter()
+    maven {
+        url "https://raw.githubusercontent.com/mavenutils/mavenlib/master/mavenlib"
+    }
+}
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

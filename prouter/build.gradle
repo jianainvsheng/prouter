@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+ext{
+    groupId = "com.source.router"
+    artifactId = "router"
+    version = "1.0.1"
+    packaging = "aar"
+}
+apply from: project.rootProject.uri('gradle/maven.gradle')
+android {
+    compileSdkVersion 27
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:27.1.0'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.33'
+    compile 'com.source.annotation:annotation:1.0.2'
+}

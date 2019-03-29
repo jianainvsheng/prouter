@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+ext{
+    groupId = "com.source.annotation"
+    artifactId = "annotation"
+    version = "1.0.2"
+    packaging = "jar"
+}
+apply from: project.rootProject.uri('gradle/maven.gradle')
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

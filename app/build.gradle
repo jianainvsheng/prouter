@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+apply plugin: com.out.source.router.RouterPlugin
+routerExt{
+    debug true
+    packgets "com/source"
+}
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.source.prouter"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//    compileOptions {
+//        sourceCompatibility 1.8
+//        targetCompatibility 1.8
+//    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:27.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.source.router:router:1.0.1'
+}
